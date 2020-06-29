@@ -2,7 +2,7 @@
     <div>
         <h1>Usuario</h1>
         <!-- <router-link :to="item" v-for="(item, index) of userNames" :key="index"> -->
-        <router-link :to="{ name:'users', params:{id:item}}" v-for="(item, index) of userNames" :key="index">
+        <router-link :to="{ name:'Users', params:{id:item}}" v-for="(item, index) of userNames" :key="index">
             <a>{{item}}</a>
         </router-link>
         <user/>
