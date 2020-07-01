@@ -1,10 +1,13 @@
 <template>
     <div>
-        <h1>Usuario</h1>
+        <h2>Usuarios</h2>
         <!-- <router-link :to="item" v-for="(item, index) of userNames" :key="index"> -->
-        <router-link :to="{ name:'Users', params:{id:item}}" v-for="(item, index) of userNames" :key="index">
-            <a>{{item}}</a>
-        </router-link>
+        <nav>
+            <router-link :to="{ name:'Users', params:{id:item}}" v-for="(item, index) of userNames" :key="index">
+                {{item}}
+            </router-link>
+
+        </nav>
         <user/>
     </div>
 </template>
@@ -24,8 +27,21 @@ export default {
 }
 </script>
 <style scoped>
+nav {
+    display: inline-block;
+    background: #fafafa;
+    border-radius: 3px;
+    overflow: hidden;
+}
 a {
     display: inline-block;
-    margin: 1rem .5rem;
+    padding: 1rem 1.5rem;
+}
+a, a:hover {
+    text-decoration: none;
+}
+.router-link-active {
+    /* border-bottom: 2px solid #428bca; */
+    background: #f0f0f0;
 }
 </style>
