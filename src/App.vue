@@ -5,7 +5,7 @@
       <router-link class="nav-item" to="/products">Products</router-link>
       <!-- <router-link class="nav-item" to="/about">About</router-link> -->
       <!-- <router-link class="nav-item" to="/contact">Contact</router-link> -->
-      <router-link class="nav-item" to="/users/Juan">User</router-link>
+      <router-link class="nav-item" to="/users/Juan">Users</router-link>
       <router-link class="nav-item" to="/login">Login</router-link>
       <router-link class="nav-item" to="/signup">Signup</router-link>
     </div>
