@@ -5,6 +5,8 @@ import Contact from '../views/Contact.vue'
 import Users from '../views/Users.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
+import Products from '../views/products/Index.vue'
+import Product from '../views/products/Detail.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +43,16 @@ Vue.use(VueRouter)
     path: '/signup',
     name: 'Signup',
     component: Signup
+  },
+  {
+    path: '/products',
+    name: 'Products',
+    component: Products
+  },
+  {
+    path: '/product/:id',
+    name: 'product',
+    component: Product
   },
   {
     path: '*',

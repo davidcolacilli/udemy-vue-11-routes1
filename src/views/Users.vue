@@ -6,7 +6,6 @@
             <router-link :to="{ name:'Users', params:{id:item}}" v-for="(item, index) of userNames" :key="index">
                 {{item}}
             </router-link>
-
         </nav>
         <user/>
     </div>
@@ -41,7 +40,6 @@ a, a:hover {
     text-decoration: none;
 }
 .router-link-active {
-    /* border-bottom: 2px solid #428bca; */
     background: #f0f0f0;
 }
 </style>
