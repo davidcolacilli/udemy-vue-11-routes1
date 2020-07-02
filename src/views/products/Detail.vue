@@ -1,7 +1,7 @@
 <template>
     <div>
         <section>
-            <h2><a @click="back" class="previous">&#8249;</a> {{name}}</h2>
+            <h2><a href="#" @click="back" class="previous">&#8249;</a> {{name}}</h2>
             <pre>
                 {{this.$route.params}}
             </pre>
@@ -24,14 +24,9 @@ export default {
 }
 </script>
 <style scoped>
-/* .previous {
+h2 {margin: 2rem 0;}
+.previous {
+    padding: 0 1rem;
     text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #f1f1f1;
-    border-radius: 50%;
 }
-.previous:hover {
-  background-color: #ddd;
-} */
 </style>
