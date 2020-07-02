@@ -16,12 +16,12 @@ export default {
         return {
             products: [
                 {
-                    name: 'Taza',
-                    id: 'asdf'
+                    name: 'Cup',
+                    id: 'cup-01'
                 },
                 {
-                    name: 'Aeronave',
-                    id: '32462'
+                    name: 'Airplane',
+                    id: 'airplane-AA'
                 }
             ]
         }
