@@ -2,10 +2,10 @@
     <div class="wrapper">
         <form class="form-signin">       
         <h2 class="form-signin-heading">Login</h2>
-        <input type="email" class="form-control" name="username" placeholder="Email Address" required="true" autofocus="true" v-model="myForm.userData.username"/>
-        <input type="password" class="form-control" name="password" placeholder="Password" required="true" v-model="myForm.userData.password"/>      
+        <input type="email" class="form-control" name="username" placeholder="Email Address" required="true" autofocus="true" v-model="loginForm.userData.username"/>
+        <input type="password" class="form-control" name="password" placeholder="Password" required="true" v-model="loginForm.userData.password"/>      
         <label class="checkbox">
-            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" v-model="myForm.remember"> Remember me
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" v-model="loginForm.remember"> Remember me
         </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit" @click.prevent="submit">Login</button>   
         <a class="btn btn-link" @click="goToSignup">Create account</a>
@@ -14,26 +14,26 @@
         
         <h4>Array:</h4>
         <label for="cb1">
-            <input type="checkbox" value="cb1" id="cb1" name="cb1" v-model="myForm.cbox"> Cbox 1
+            <input type="checkbox" value="cb1" id="cb1" name="cb1" v-model="loginForm.cbox"> Cbox 1
         </label>
         <label for="cb2">
-            <input type="checkbox" value="cb2" id="cb2" name="cb2" v-model="myForm.cbox"> Cbox 2
+            <input type="checkbox" value="cb2" id="cb2" name="cb2" v-model="loginForm.cbox"> Cbox 2
         </label>
         
         <h4>Radio:</h4>
         <label for="rad1">
-          <input type="radio" name="rad" value="one" id="rad1" v-model="myForm.radio"> one
+          <input type="radio" name="rad" value="one" id="rad1" v-model="loginForm.radio"> one
         </label>
         <label for="rad2">
-          <input type="radio" name="rad" value="two" id="rad2" v-model="myForm.radio"> two
+          <input type="radio" name="rad" value="two" id="rad2" v-model="loginForm.radio"> two
         </label>
         <label for="rad3">
-          <input type="radio" name="rad" value="three" id="rad3" v-model="myForm.radio"> three
+          <input type="radio" name="rad" value="three" id="rad3" v-model="loginForm.radio"> three
         </label>
 
         <h4>Select:</h4>
-        <select name="daytime" id="" v-model="myForm.daytime">
-          <option v-for="item in myForm.dayTimeOptions" :key="item">{{item}}</option>
+        <select name="daytime" id="" v-model="loginForm.daytime">
+          <option v-for="item in loginForm.dayTimeOptions" :key="item">{{item}}</option>
         </select>
 
         </form>
@@ -42,17 +42,17 @@
 
         <section>
           <h4>Preview</h4>
-          <p>Name: {{myForm.userData.username}}</p>
-          <p>PWD: {{myForm.userData.password}}</p>
-          <p>Remember: {{myForm.remember}}</p>
+          <p>Name: {{loginForm.userData.username}}</p>
+          <p>PWD: {{loginForm.userData.password}}</p>
+          <p>Remember: {{loginForm.remember}}</p>
           <hr>
           <h4>Other fields</h4>
           <p>Array:</p>
           <ul>
-            <li v-for="item in myForm.cbox" :key="item">{{item}}</li>
+            <li v-for="item in loginForm.cbox" :key="item">{{item}}</li>
           </ul>
-          <p>Boolean: {{myForm.radio}}</p>
-          <p>Select: {{myForm.daytime}}</p>
+          <p>Boolean: {{loginForm.radio}}</p>
+          <p>Select: {{loginForm.daytime}}</p>
         </section>
     </div>    
 </template>
@@ -61,7 +61,7 @@ export default {
   name: 'Login',
   data() {
     return {
-      myForm: {
+      loginForm: {
         userData: {
           username: '',
           password: ''
@@ -79,7 +79,7 @@ export default {
       this.$router.push('/register');
     },
     submit: function() {
-      console.log(this.myForm)
+      console.log(this.loginForm)
     }
   }
 }
