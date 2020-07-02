@@ -2,41 +2,100 @@
     <div class="wrapper">
         <form class="form-signin">       
         <h2 class="form-signin-heading">Login</h2>
-        <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-        <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+        <input type="email" class="form-control" name="username" placeholder="Email Address" required="true" autofocus="true" v-model="myForm.userData.username"/>
+        <input type="password" class="form-control" name="password" placeholder="Password" required="true" v-model="myForm.userData.password"/>      
         <label class="checkbox">
-            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" v-model="myForm.remember"> Remember me
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @click.prevent="submit">Login</button>   
         <a class="btn btn-link" @click="goToSignup">Create account</a>
+        <hr>
+        <h3>Other fields</h3>
+        
+        <h4>Array:</h4>
+        <label for="cb1">
+            <input type="checkbox" value="cb1" id="cb1" name="cb1" v-model="myForm.cbox"> Cbox 1
+        </label>
+        <label for="cb2">
+            <input type="checkbox" value="cb2" id="cb2" name="cb2" v-model="myForm.cbox"> Cbox 2
+        </label>
+        
+        <h4>Radio:</h4>
+        <label for="rad1">
+          <input type="radio" name="rad" value="one" id="rad1" v-model="myForm.radio"> one
+        </label>
+        <label for="rad2">
+          <input type="radio" name="rad" value="two" id="rad2" v-model="myForm.radio"> two
+        </label>
+        <label for="rad3">
+          <input type="radio" name="rad" value="three" id="rad3" v-model="myForm.radio"> three
+        </label>
+
+        <h4>Select:</h4>
+        <select name="daytime" id="" v-model="myForm.daytime">
+          <option v-for="item in myForm.dayTimeOptions" :key="item">{{item}}</option>
+        </select>
+
         </form>
+
+
+
+        <section>
+          <h4>Preview</h4>
+          <p>Name: {{myForm.userData.username}}</p>
+          <p>PWD: {{myForm.userData.password}}</p>
+          <p>Remember: {{myForm.remember}}</p>
+          <hr>
+          <h4>Other fields</h4>
+          <p>Array:</p>
+          <ul>
+            <li v-for="item in myForm.cbox" :key="item">{{item}}</li>
+          </ul>
+          <p>Boolean: {{myForm.radio}}</p>
+          <p>Select: {{myForm.daytime}}</p>
+        </section>
     </div>    
 </template>
 <script>
 export default {
   name: 'Login',
+  data() {
+    return {
+      myForm: {
+        userData: {
+          username: '',
+          password: ''
+        },
+        remember: true,
+        cbox: [],
+        radio: 'one',
+        daytime: '',
+        dayTimeOptions: ["Morning", "Afternoon", "Evening"]
+      }
+    }
+  },
   methods: {
     goToSignup: function() {
       this.$router.push('/register');
+    },
+    submit: function() {
+      console.log(this.myForm)
     }
   }
 }
 </script>
 <style scoped>
-body {
-  background: #eee !important;
-}
 
 .wrapper {
   margin-top: 80px;
-  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 .form-signin {
+  flex-grow: 1;
   max-width: 380px;
   padding: 15px 35px 45px;
-  margin: 0 auto;
-  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .form-signin .form-signin-heading,
@@ -58,7 +117,7 @@ body {
 .form-signin .form-control:focus {
   z-index: 2;
 }
-.form-signin input[type="text"] {
+.form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -68,5 +127,7 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+section {
+  padding: 4rem;
+}
 </style>
